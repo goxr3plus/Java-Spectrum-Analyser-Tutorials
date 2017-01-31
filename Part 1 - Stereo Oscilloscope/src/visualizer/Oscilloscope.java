@@ -111,7 +111,7 @@ public class Oscilloscope {
 			pSample1 = visualizerDrawer.stereoMerge(visualizerDrawer.pLeftChannel, visualizerDrawer.pRightChannel);
 
 		visualizerDrawer.gc.setStroke(visualizerDrawer.oscilloscopeColor);
-		 System.out.println(pSample1.length);
+		// System.out.println(pSample1.length)
 
 		int yLast1 = (int) (pSample1[0] * (float) visualizerDrawer.halfCanvasHeight)
 				+ visualizerDrawer.halfCanvasHeight;
