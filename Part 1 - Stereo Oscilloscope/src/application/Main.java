@@ -1,11 +1,13 @@
 package application;
 
-import java.io.File;
-
 import javafx.application.Application;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Main extends Application {
 
@@ -24,8 +26,21 @@ public class Main extends Application {
 			primaryStage.setOnCloseRequest(c -> System.exit(0));
 			primaryStage.show();
 
-			// Let's play this song[Replace with your song file path]
-			playerExample.playSong(new File("C:/Users/GOXR3PLUS/Desktop/song.mp3"));
+			// Selection of song to play
+			JFileChooser jFileChooser = new JFileChooser();
+			jFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+			jFileChooser.setFileFilter(new FileNameExtensionFilter("audio","mp3","wav"));
+			jFileChooser.setAcceptAllFileFilterUsed(false);
+
+			while(true){
+				if(jFileChooser.showOpenDialog(null)==JFileChooser.APPROVE_OPTION){
+					playerExample.playSong(jFileChooser.getSelectedFile());
+					break;
+				} else{
+					JOptionPane.showMessageDialog(null,"Please choose audio file","Select audio",
+							JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
 
 		} catch (Exception ex) {
 			ex.printStackTrace();
