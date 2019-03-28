@@ -5,11 +5,7 @@ import java.util.Map;
 
 import javafx.application.Platform;
 import javafx.scene.layout.StackPane;
-import streamplayer.StreamPlayer;
-import streamplayer.StreamPlayer.Status;
-import streamplayer.StreamPlayerEvent;
-import streamplayer.StreamPlayerException;
-import streamplayer.StreamPlayerListener;
+import streamplayer.*;
 import visualizer.Visualizer;
 
 public class PlayerExample extends StackPane implements StreamPlayerListener {
